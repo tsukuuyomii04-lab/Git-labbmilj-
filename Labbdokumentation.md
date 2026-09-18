@@ -17,9 +17,15 @@ En servern har Ubuntu som OS och andra har WIN 11 som OS.
 <p>Har Konfiguerat statisk IP addresser till båda servrarna</p>
 
 <h1>Kommandoradsgenomförande </h1>
+<p>Ubuntu</p>
 <p>
-1. mkdir /var/Systementor/konsultdata 
-2. touch var/Systementor/konsultdata Labbdokumenation.md
 
+1. mkdir -p /var/Systementor/konsultdata 
+2. touch var/Systementor/konsultdata/anteckningar.txt
+3. sudo groupadd {konsulter}
+4. sudo chown :konsulter var/Systementor/konsultdata
+5. sudo chown :konsulter var/Systementor/konsultdata/anteckningar.txt
+6. sudo chmod 640 var/Systementor/konsultdata/anteckningar.txt
+7. sudo chmod 750 var/Systementor/konsultdata
 
 </p>
