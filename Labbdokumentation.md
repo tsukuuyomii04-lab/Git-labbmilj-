@@ -21,9 +21,74 @@ En servern har Ubuntu som OS och andra har WIN 11 som OS.
 
 <h3>Ubuntu</h3>
 
+<h3>IP configs med NetworkManager</h3>
+<p>
+
+1. Check ip
+
+    Ip add
+
+2. visa routing table
+
+    Ip route 
+
+3. Update Ubuntu server
+
+    sudo apt update
+
+4. Install Network-manager if u want it
+
+    sudo apt install network-manager
+
+5. starta det network-manager
+
+    sudo systemctl start NewtworkManager
+
+6. enable network-manager
+
+    sudo systemctl enable NetworkManager
+
+7. Checka att den är aktiv
+
+    systemctl is-active NetworkManager
+
+8. Checka network interfaces 
+
+    nmcli device status 
+
+9. Checka vilka available connections det finns 
+
+    nmcli connection show
+
+10. create labnet 
+    
+    sudo nmcli connection add type ethernet ifname enp0s8 con-name [Din valda Namn till nätverket] ipv4.method manual ipv4.addresses [Din Valda IP]
+    
+    
+11. starta ditt nätverk
+
+    sudo nmcli connection up labnet 
+
+12. checka igen  
+
+    ip add
+
+13. checka route igen 
+
+    ip route 
+
+14. checka connection med Windows server
+
+    ping -c [din valda ip address]
+
+
+</p>
+
+<h3>Skapning av mappar o användare</h3>
+
 <p> Följande kommandon användes för att skapa katalogen, gruppen och filen samt konfigurera ägarskap och behörigheter.</p>
 
-<p> Skappning av Directory
+<p>
 
 1. Skapa Mappen
 
@@ -61,29 +126,40 @@ ls -l /var/Systementor/konsultdata/antecknignar.txt
 
 </p>
 
-<h3>IP configs</h3>
-<p>
-
-
-</p>
-
 <h3>Windows</h3>
+
+<h3>Windows Network Configs</h3>
 <p>
-1. Kontrollerar Windows nätverkskonfiguration
+1. Kontrollerar Windows adapters
 
-ipconfig
+    Get-NetAdapter
 
-2. Testa anslutningen
+2. visa ip config
 
-ping 192.168.50.10
+    Get-NetIPConfiguration 
+3. Visa nuvarande Ip address 
+   
+    Get-NetIPAddress
 
-3. Om det inte går för att firewall
+4.  Ge ny ip address
+   
+   New-NetIPAddress -InterfaceAlias "Ethernet" -IPAddress 192.168.50.20 -PrefixLength 24
 
-New-NetFirewallRule -DisplayName "Allow ICMPv4-In" -Protocol ICMPv4 -IcmpType 8 -Direction Inbound -Action Allow
+5. Checka Statisk ip address
 
-4. testa pingen igen 
+    Get-NetIPAddress -InterfaceAlias "Ethernet"
 
+6. Testa anslutningen till linux server
 
+    ping [din valda ip]
+
+7. Om det inte går för att firewall
+
+    New-NetFirewallRule -DisplayName "Allow ICMPv4-In" -Protocol ICMPv4 -IcmpType 8 -Direction Inbound -Action Allow
+
+8. testa pingen igen 
+
+    ping [din valda ip]
 
 </p>
 
