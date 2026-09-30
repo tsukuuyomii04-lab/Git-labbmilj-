@@ -163,7 +163,56 @@ ls -l /var/Systementor/konsultdata/antecknignar.txt
 
 </p>
 
+<h3>Windows Katalog & Användare</h3>
+<p>
+1. skapa mapp 
 
+    mkdir C:\Systementor\KonsultData
+
+2.checka behörigheter 
+
+    Get-Acl C:\Systementor\KonsultData
+
+
+
+
+</p>
+
+
+<h2>Git & Versionshantering</h2>
+
+<p>
+git log --oneline
+
+ecda917 (HEAD -> main, origin/main) All nätverks Step-by-step
+
+8084c79 Windows configs
+
+e04fd21 Hela Linux cli lines klara
+
+ea5256f Nätverkstabbel och en del av commandolines
+
+dbd7505 .gitignore skapad
+
+7b25597 Skapa labbdokumentation
+
+https://github.com/tsukuuyomii04-lab/Git-labbmilj- 
+</p>
+
+
+<h2>Ai-Logg</h2>
+<p>
+
+Jag då använde mig av Chatgpt för att få svar, Jag ställde frågor som "Hur använder man Chmod och vad gör det för något" 
+
+Jag bad AI då alltid förklara vad jag har gjort så att jag då förstår.
+
+Jag fick inte direkt några hallucinationer för att alla frågor var väldigt simpla att förklara, skulle jag säga att jag använde mig av mycket AI, ja det gjorde jag.
+
+Skulle nog säga att om man frågar AI hur man ska sätta privilieges som vem som äger filen och foldern då är det redan då en säkerhets risk för AI vet. Men bottom det nej inte direkt.  
+
+
+</p>
 <div><h1>Screenshots</h1>
 
 </div>
